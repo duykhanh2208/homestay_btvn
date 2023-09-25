@@ -39,7 +39,7 @@ public class HomestayController {
        return new ResponseEntity<>(homestay,HttpStatus.OK);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public  ResponseEntity<Homestay> delete(@PathVariable Long id){
         Optional<Homestay> homestay = homeStayService.findById(id);
         if(!homestay.isPresent()){
