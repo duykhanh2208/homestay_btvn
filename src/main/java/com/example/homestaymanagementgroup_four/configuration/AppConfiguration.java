@@ -41,7 +41,7 @@ import java.util.Properties;
 @PropertySource("classpath:upload.properties")
 public class AppConfiguration implements WebMvcConfigurer, ApplicationContextAware {
     private ApplicationContext applicationContext;
-    @Value("AppConffiguration")
+    @Value("${upload}")
     private String upload;
 
     @Override

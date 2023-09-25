@@ -38,8 +38,24 @@ public class Homestay {
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "service_homestay",
+            joinColumns = @JoinColumn(name = "homestay_id"), inverseJoinColumns = @JoinColumn(name = "service_id"))
+    List<Service> services;
 
     public Homestay() {
+    }
+
+    public Homestay(Long id, String name, String description, String locationDetail, Boolean isActive, String image, Address address, Category category, List<Service> services) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.locationDetail = locationDetail;
+        this.isActive = isActive;
+        this.image = image;
+        this.address = address;
+        this.category = category;
+        this.services = services;
     }
 
     public Homestay(String name, String description, String locationDetail, Boolean isActive, String image, Address address, Category category) {
@@ -133,5 +149,13 @@ public class Homestay {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public List<Service> getServices() {
+        return services;
+    }
+
+    public void setServices(List<Service> services) {
+        this.services = services;
     }
 }

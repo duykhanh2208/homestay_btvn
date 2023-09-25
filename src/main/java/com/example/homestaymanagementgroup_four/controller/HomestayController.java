@@ -12,7 +12,7 @@ import java.util.Optional;
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/api/homestay")
-public class HomeStaycontroller {
+public class HomestayController {
     @Autowired
     private HomeStayService homeStayService;
 
