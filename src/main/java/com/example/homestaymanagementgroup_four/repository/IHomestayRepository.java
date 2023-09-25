@@ -14,4 +14,7 @@ public interface IHomestayRepository extends JpaRepository<Homestay, Long> {
 
     @Query(value = "SELECT * FROM homestay JOIN category c ON homestay.category_id = c.id WHERE price between ? and ? ", nativeQuery = true)
     List<Homestay> searchByPrice(double a, double b);
+
+    @Query(value = "select * from homestay join category c on c.id = homestay.category_id where amount between ? and ? ", nativeQuery = true)
+    List<Homestay> searchAmount(double a, double b);
 }

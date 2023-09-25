@@ -22,4 +22,9 @@ public class SearchingController {
         return new ResponseEntity<>(homestays,HttpStatus.OK);
     }
 
+    @GetMapping("/searchAmount/{a}/{b}")
+    public ResponseEntity<List<Homestay>> searchAmount(@PathVariable double a, @PathVariable double b) {
+        List<Homestay> homestays = searchService.searchByAmount(a,b);
+        return new ResponseEntity<>(homestays,HttpStatus.OK);
+    }
 }

@@ -16,4 +16,9 @@ public class SearchService {
         List<Homestay> list = homestayRepository.searchByPrice(a,b);
         return list;
     }
+
+    public List<Homestay> searchByAmount(double a, double b){
+        List<Homestay> list = homestayRepository.searchAmount(a,b);
+        return list;
+    }
 }
